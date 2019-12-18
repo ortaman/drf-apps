@@ -1,0 +1,32 @@
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+_staticfiles/
+!_staticfiles/info.txt
+_media/
+!_media/info.txt
+
+### Database ###
+db.sqlite3
+volumes
+
+### PyCharm ###
+.idea/*
+
+### Logs and databases ####
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+### OS generated files ###
+.DS_Store
+.DS_Store?
+
+### Third apps ###
+.coverage
+htmlcov/

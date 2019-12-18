@@ -1,0 +1,10 @@
+-r base.txt
+
+django-cors-headers
+
+gunicorn
+coverage
+
+# To swagger
+packaging
+drf-yasg

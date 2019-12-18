@@ -1,0 +1,17 @@
+-r base.txt
+
+coverage
+django-autocomplete-light
+django-cors-headers
+django-debug-toolbar
+django-extensions
+httpie
+ipython
+
+# To swagger
+packaging
+drf-yasg
+
+# To graph models
+pyparsing
+pydot
