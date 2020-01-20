@@ -2,4 +2,4 @@
 django==2.2.8
 djangorestframework
 djangorestframework_simplejwt
-psycopg2
+psycopg2-binary

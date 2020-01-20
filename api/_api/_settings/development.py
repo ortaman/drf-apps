@@ -4,7 +4,8 @@ from datetime import timedelta
 from .base import *
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+
 
 if os.getenv('DOCKER_CONTAINER') == 'True':
     DB_HOST = os.getenv('DJANGO_DB_HOST')           # to run with docker

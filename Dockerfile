@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 # Set working directory
 RUN mkdir /api
 COPY ./api /api
-COPY ./entrypoint.sh /api
+COPY ./docker-entrypoint.sh /api
 
 WORKDIR /api
 
@@ -31,9 +31,9 @@ RUN apk add --no-cache --virtual .build-deps \
     && apk add --virtual .rundeps $runDeps \
     && apk del .build-deps
 
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x ./docker-entrypoint.sh
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
 
-# python manage.py dumpdata > db.json
 # python manage.py loaddata db.json
+# python manage.py dumpdata > db.json

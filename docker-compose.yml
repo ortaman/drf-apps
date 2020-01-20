@@ -5,7 +5,7 @@ services:
   db_apps:
     image: postgres
     env_file:
-      - ./development.env
+      - ./env.dev
     ports:
       - 5432:5432
     expose:
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - ./development.env
+      - ./env.dev
     command: python3 api/manage.py runserver 0.0.0.0:8000
     ### command: gunicorn --pythonpath api _config.wsgi --bind 0.0.0.0:8000
     volumes:
@@ -32,8 +32,6 @@ services:
     networks:
       - main  # Add the container to the network "main"
     depends_on:
-      - db_apps
-    links:
       - db_apps
 
 networks:
