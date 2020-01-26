@@ -38,6 +38,8 @@ INSTALLED_APPS = [
 
     # Third-Party Apps
     'rest_framework',
+    'django_celery_results',
+    'django_celery_beat',
 
     # Local Apps
     'common',

@@ -5,11 +5,11 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set working directory
-RUN mkdir /api
-COPY ./api /api
-COPY ./docker-entrypoint.sh /api
+RUN mkdir /code
+COPY . /code
+COPY docker-entrypoint.sh /code
 
-WORKDIR /api
+WORKDIR /code/api
 
 # Install dependencies
 RUN apk add --no-cache --virtual .build-deps \
@@ -31,9 +31,7 @@ RUN apk add --no-cache --virtual .build-deps \
     && apk add --virtual .rundeps $runDeps \
     && apk del .build-deps
 
-RUN chmod +x ./docker-entrypoint.sh
-
-ENTRYPOINT ["./docker-entrypoint.sh"]
+RUN chmod +x ../docker-entrypoint.sh
 
 # python manage.py loaddata db.json
 # python manage.py dumpdata > db.json

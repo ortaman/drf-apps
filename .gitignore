@@ -30,3 +30,8 @@ volumes
 ### Third apps ###
 .coverage
 htmlcov/
+
+### Celery ###
+celerybeat.pid
+celerybeat-schedule
+a

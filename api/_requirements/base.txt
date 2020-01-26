@@ -3,3 +3,9 @@ django==2.2.8
 djangorestframework
 djangorestframework_simplejwt
 psycopg2-binary
+
+# Celery
+celery
+redis
+django-celery-beat
+django_celery_results
