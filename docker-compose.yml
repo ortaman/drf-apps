@@ -15,14 +15,14 @@ services:
     networks:
       - main  # Add the container to the network "main"
 
-  api:
+  apps:
     build:
       context: .
       dockerfile: ./Dockerfile
     env_file:
       - env.dev
     command: python3 manage.py runserver 0.0.0.0:8000
-    ### command: gunicorn --pythonpath api _config.wsgi --bind 0.0.0.0:8000
+    ### command: gunicorn --pythonpath apps _config.wsgi --bind 0.0.0.0:8000
     entrypoint: ../docker-entrypoint.sh
     volumes:
       - .:/code
@@ -49,7 +49,7 @@ services:
     build: .
     env_file:
       - env.dev
-    command: celery -A _api worker -l info
+    command: celery -A _apps worker -l info
     volumes:
       - .:/code
     networks:
@@ -62,7 +62,7 @@ services:
     build: .
     env_file:
       - env.dev
-    command: celery -A _api beat -l info
+    command: celery -A _apps beat -l info
     volumes:
       - .:/code
     networks:

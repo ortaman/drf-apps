@@ -1,4 +1,4 @@
-"""api URL Configuration
+"""apps URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -21,7 +21,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/', include('users.urls')),
+    path('api/v1/', include('api_users.urls')),
     path('chat/', include('chat.urls')),
 ]
 
@@ -33,9 +33,9 @@ if settings.DEBUG:
 
     schema_view = get_schema_view(
        openapi.Info(
-          title="Api Apps",
+          title="Django Apps",
           default_version='v1',
-          description="Api Apps",
+          description="Django Apps",
           # terms_of_service="https://www.google.com/policies/terms/",
           contact=openapi.Contact(email="ente011@gmail.com"),
           # license=openapi.License(name="BSD License"),
