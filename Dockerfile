@@ -9,7 +9,7 @@ RUN mkdir /code
 COPY . /code
 COPY docker-entrypoint.sh /code
 
-WORKDIR /code/api
+WORKDIR /code/apps
 
 # Install dependencies
 RUN apk add --no-cache --virtual .build-deps \

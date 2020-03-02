@@ -34,4 +34,3 @@ htmlcov/
 ### Celery ###
 celerybeat.pid
 celerybeat-schedule
-a

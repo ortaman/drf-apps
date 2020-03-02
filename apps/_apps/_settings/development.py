@@ -107,8 +107,8 @@ CELERY_BEAT_SCHEDULE = {
 }
 
 # Channels configuration
-WSGI_APPLICATION = '_api.wsgi.application'
-ASGI_APPLICATION = "_api.routing.application"
+WSGI_APPLICATION = '_apps.wsgi.application'
+ASGI_APPLICATION = "_apps.routing.application"
 
 CHANNEL_LAYERS = {
     'default': {

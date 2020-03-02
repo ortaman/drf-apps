@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 
     # Local Apps
     'common',
-    'users',
+    'api_users',
     'chat',
 ]
 
@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '_api.urls'
+ROOT_URLCONF = '_apps.urls'
 
 TEMPLATES = [
     {
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = '_api.wsgi.application'
+WSGI_APPLICATION = '_apps.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -134,7 +134,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '../_media')
 
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'api_users.User'
 
 
 REST_FRAMEWORK = {
