@@ -11,6 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+
 django_env = os.environ.get('DJANGO_ENV', 'development')
 
 if django_env == 'development':

@@ -40,10 +40,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_celery_results',
     'django_celery_beat',
+    'channels',
 
     # Local Apps
     'common',
     'users',
+    'chat',
 ]
 
 MIDDLEWARE = [

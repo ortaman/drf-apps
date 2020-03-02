@@ -9,9 +9,12 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 if os.getenv('DOCKER_CONTAINER') == 'True':
     DB_HOST = os.getenv('DJANGO_DB_HOST')           # to run with docker
+    CELERY_BROKER = os.getenv('DJANGO_CELERY_BROKER')
+    CHANNEL_HOST = os.getenv('DJANGO_CHANNEL_HOST')
 else:
     DB_HOST = '127.0.0.1'                           # to debug using pycharm
-
+    CELERY_BROKER = 'redis://localhost:6379/0'
+    CHANNEL_HOST = 'redis://localhost:6379/0'
 
 DATABASES = {
     'default': {
@@ -88,7 +91,7 @@ SIMPLE_JWT = {
 # Celery configuration
 from celery.schedules import crontab
 
-CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_BROKER_URL = CELERY_BROKER
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
@@ -101,4 +104,17 @@ CELERY_BEAT_SCHEDULE = {
         'task': 'common.tasks.test_celery_beat_task',
         'schedule': crontab()          # execute every minute
     }
+}
+
+# Channels configuration
+WSGI_APPLICATION = '_api.wsgi.application'
+ASGI_APPLICATION = "_api.routing.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [CHANNEL_HOST],
+        },
+    },
 }

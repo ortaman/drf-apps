@@ -9,3 +9,8 @@ celery
 redis
 django-celery-beat
 django_celery_results
+
+# To Django-chanels
+channels
+channels-redis
+daphne
